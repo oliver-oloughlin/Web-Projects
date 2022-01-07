@@ -1,6 +1,6 @@
 "use strict"
 
-window.addEventListener("onload", run());
+window.onload = run;
 
 function run() {
 
@@ -15,7 +15,13 @@ function run() {
         for (let j = 0; j < 3; j++) {
             const td = tr.insertCell();
             td.innerText = "X";
+            td.onclick = makeMove;
         }
+    }
+
+    function makeMove(e) {
+        const td = e.target;
+        
     }
 
 }
