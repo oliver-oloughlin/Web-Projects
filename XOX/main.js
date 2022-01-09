@@ -1,27 +1,13 @@
 "use strict"
 
+import GameController from "./GameController.js"
+
 window.onload = run;
 
 function run() {
 
-    const root = document.getElementById("root");
     const table = document.getElementById("table");
-
-    console.log(root);
+    const gc = new GameController(table);
+    gc.start();
     
-    for (let i = 0; i < 3; i++) {
-        const tr = document.createElement("tr");
-        table.appendChild(tr);
-        for (let j = 0; j < 3; j++) {
-            const td = tr.insertCell();
-            td.innerText = "X";
-            td.onclick = makeMove;
-        }
-    }
-
-    function makeMove(e) {
-        const td = e.target;
-        
-    }
-
 }

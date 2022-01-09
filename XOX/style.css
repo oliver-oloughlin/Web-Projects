@@ -1,0 +1,15 @@
+div.container {
+    text-align: center;
+}
+
+td {
+    border: 0.5rem solid black;
+    font-size: 5.5rem;
+    width: 6rem;
+    height: 6rem;
+}
+
+table, tr {
+    padding: 0;
+    margin: 0;
+}
