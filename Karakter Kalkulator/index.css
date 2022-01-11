@@ -12,6 +12,7 @@ body * {
 div.main-container {
     height: 100%;
     width: 100%;
+    text-align: center;
 }
 
 div.input-container {
