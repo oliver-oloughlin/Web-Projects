@@ -5,11 +5,9 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   async function handleOnSubmit(e) {
     e.preventDefault();
-    const formData = {};
-    Array.from(e.currentTarget.elements).forEach(field => {
-      if (!field.name) return;
-      formData[field.name] = field.value;
-    })
+    const form = new FormData(e.target);
+    const formData = Object.fromEntries(form.entries());
+
     console.log(formData);
   }
   return (
