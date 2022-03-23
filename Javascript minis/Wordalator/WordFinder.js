@@ -14,27 +14,13 @@ function findWord(dict) {
     const countMap = new Map();
     FLWords.forEach(word => {
         const chars = Array.from(word);
-        const sorted = chars.sort( (c1, c2) => c1 - c2 );
-        const s = sorted.join("");
-        const set = new Set(s);
-        if (set.size < 5) return;
-        const count = countMap.get(s);
-        console.log(count);
-        if (count) countMap.set(s, count + 1)
-        else countMap.set(s, 1);
+        chars.forEach( c => countMap.set(c, countMap.has(c) ? countMap.get(c) + 1 : 1));
     });
 
     const countArray = Array.from(countMap.entries());
     countArray.sort( ([k1, v1], [k2, v2]) => v2 - v1 );
-    const mostCommon = countArray.map( ([key, value]) => key ).at(0);
-    
-    const word = FLWords.find( w => {
-        const chars = Array.from(w);
-        const sorted = chars.sort( (c1, c2) => c1 - c2 );
-        const s = sorted.join("");
-        return s == mostCommon;
-    });
-
+    const mostCommon = countArray.filter( (v, i, _) => i < 5).map( ([k, v]) => k);
+    const word = FLWords.find( w => mostCommon.every( c => w.includes(c) ) );
     return word;
 }
 
